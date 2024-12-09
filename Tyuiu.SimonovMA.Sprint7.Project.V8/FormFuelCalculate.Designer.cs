@@ -49,6 +49,8 @@
             textBoxFuelConsumed_SMA.Name = "textBoxFuelConsumed_SMA";
             textBoxFuelConsumed_SMA.Size = new Size(274, 23);
             textBoxFuelConsumed_SMA.TabIndex = 0;
+            textBoxFuelConsumed_SMA.TextChanged += textBoxFuelConsumed_SMA_TextChanged;
+            textBoxFuelConsumed_SMA.KeyPress += textBoxFuelConsumed_SMA_KeyPress;
             // 
             // textBoxKilometersRode_SMA
             // 
@@ -57,6 +59,7 @@
             textBoxKilometersRode_SMA.Name = "textBoxKilometersRode_SMA";
             textBoxKilometersRode_SMA.Size = new Size(274, 23);
             textBoxKilometersRode_SMA.TabIndex = 1;
+            textBoxKilometersRode_SMA.KeyPress += textBoxKilometersRode_SMA_KeyPress;
             // 
             // textBoxFuelPrice_SMA
             // 
@@ -65,6 +68,7 @@
             textBoxFuelPrice_SMA.Name = "textBoxFuelPrice_SMA";
             textBoxFuelPrice_SMA.Size = new Size(274, 23);
             textBoxFuelPrice_SMA.TabIndex = 2;
+            textBoxFuelPrice_SMA.KeyPress += textBoxFuelPrice_SMA_KeyPress;
             // 
             // labelFuelPrice_SMA
             // 
@@ -116,6 +120,7 @@
             buttonCalculate_SMA.TabIndex = 7;
             buttonCalculate_SMA.Text = "Рассчитать расход";
             buttonCalculate_SMA.UseVisualStyleBackColor = true;
+            buttonCalculate_SMA.Click += buttonCalculate_SMA_Click;
             // 
             // labelResult_SMA
             // 
