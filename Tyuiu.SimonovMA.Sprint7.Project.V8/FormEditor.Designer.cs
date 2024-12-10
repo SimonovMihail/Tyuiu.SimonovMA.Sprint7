@@ -32,15 +32,28 @@
             buttonSave_SMA = new Button();
             buttonLoad_SMA = new Button();
             groupBoxWorkSpace_SMA = new GroupBox();
+            textBoxSearchColumn_SMA = new TextBox();
+            labelSearchColumn_SMA = new Label();
+            buttonClearSearch_SMA = new Button();
             buttonDataSearch_SMA = new Button();
             textBoxSearch_SMA = new TextBox();
             dataGridView_SMA = new DataGridView();
-            buttonClearSearch_SMA = new Button();
-            labelSearchColumn_SMA = new Label();
-            textBoxSearchColumn_SMA = new TextBox();
+            buttonSortDescending_SMA = new Button();
+            buttonSortAscending_SMA = new Button();
+            labelSortWhichColumn_SMA = new Label();
+            textBoxSortWhichColumn_SMA = new TextBox();
+            buttonSortDefaultColumn_SMA = new Button();
+            groupBoxSorting_SMA = new GroupBox();
+            groupBoxStatistics_SMA = new GroupBox();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             groupBoxControls_SMA.SuspendLayout();
             groupBoxWorkSpace_SMA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_SMA).BeginInit();
+            groupBoxSorting_SMA.SuspendLayout();
             SuspendLayout();
             // 
             // groupBoxControls_SMA
@@ -75,6 +88,13 @@
             // groupBoxWorkSpace_SMA
             // 
             groupBoxWorkSpace_SMA.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxWorkSpace_SMA.Controls.Add(label5);
+            groupBoxWorkSpace_SMA.Controls.Add(label4);
+            groupBoxWorkSpace_SMA.Controls.Add(label3);
+            groupBoxWorkSpace_SMA.Controls.Add(label2);
+            groupBoxWorkSpace_SMA.Controls.Add(label1);
+            groupBoxWorkSpace_SMA.Controls.Add(groupBoxStatistics_SMA);
+            groupBoxWorkSpace_SMA.Controls.Add(groupBoxSorting_SMA);
             groupBoxWorkSpace_SMA.Controls.Add(textBoxSearchColumn_SMA);
             groupBoxWorkSpace_SMA.Controls.Add(labelSearchColumn_SMA);
             groupBoxWorkSpace_SMA.Controls.Add(buttonClearSearch_SMA);
@@ -86,6 +106,31 @@
             groupBoxWorkSpace_SMA.Size = new Size(796, 463);
             groupBoxWorkSpace_SMA.TabIndex = 1;
             groupBoxWorkSpace_SMA.TabStop = false;
+            // 
+            // textBoxSearchColumn_SMA
+            // 
+            textBoxSearchColumn_SMA.Location = new Point(433, 15);
+            textBoxSearchColumn_SMA.Name = "textBoxSearchColumn_SMA";
+            textBoxSearchColumn_SMA.Size = new Size(23, 23);
+            textBoxSearchColumn_SMA.TabIndex = 7;
+            // 
+            // labelSearchColumn_SMA
+            // 
+            labelSearchColumn_SMA.AutoSize = true;
+            labelSearchColumn_SMA.Location = new Point(318, 18);
+            labelSearchColumn_SMA.Name = "labelSearchColumn_SMA";
+            labelSearchColumn_SMA.Size = new Size(113, 15);
+            labelSearchColumn_SMA.TabIndex = 6;
+            labelSearchColumn_SMA.Text = "Искать по столбцу:";
+            // 
+            // buttonClearSearch_SMA
+            // 
+            buttonClearSearch_SMA.Location = new Point(210, 14);
+            buttonClearSearch_SMA.Name = "buttonClearSearch_SMA";
+            buttonClearSearch_SMA.Size = new Size(23, 23);
+            buttonClearSearch_SMA.TabIndex = 5;
+            buttonClearSearch_SMA.Text = "X";
+            buttonClearSearch_SMA.UseVisualStyleBackColor = true;
             // 
             // buttonDataSearch_SMA
             // 
@@ -112,30 +157,116 @@
             dataGridView_SMA.Size = new Size(308, 410);
             dataGridView_SMA.TabIndex = 2;
             // 
-            // buttonClearSearch_SMA
+            // buttonSortDescending_SMA
             // 
-            buttonClearSearch_SMA.Location = new Point(210, 14);
-            buttonClearSearch_SMA.Name = "buttonClearSearch_SMA";
-            buttonClearSearch_SMA.Size = new Size(23, 23);
-            buttonClearSearch_SMA.TabIndex = 5;
-            buttonClearSearch_SMA.Text = "X";
-            buttonClearSearch_SMA.UseVisualStyleBackColor = true;
+            buttonSortDescending_SMA.Location = new Point(6, 22);
+            buttonSortDescending_SMA.Name = "buttonSortDescending_SMA";
+            buttonSortDescending_SMA.Size = new Size(105, 36);
+            buttonSortDescending_SMA.TabIndex = 2;
+            buttonSortDescending_SMA.Text = "По убыванию";
+            buttonSortDescending_SMA.UseVisualStyleBackColor = true;
             // 
-            // labelSearchColumn_SMA
+            // buttonSortAscending_SMA
             // 
-            labelSearchColumn_SMA.AutoSize = true;
-            labelSearchColumn_SMA.Location = new Point(318, 18);
-            labelSearchColumn_SMA.Name = "labelSearchColumn_SMA";
-            labelSearchColumn_SMA.Size = new Size(113, 15);
-            labelSearchColumn_SMA.TabIndex = 6;
-            labelSearchColumn_SMA.Text = "Искать по столбцу:";
+            buttonSortAscending_SMA.Location = new Point(113, 22);
+            buttonSortAscending_SMA.Name = "buttonSortAscending_SMA";
+            buttonSortAscending_SMA.Size = new Size(107, 36);
+            buttonSortAscending_SMA.TabIndex = 3;
+            buttonSortAscending_SMA.Text = "По возрастанию";
+            buttonSortAscending_SMA.UseVisualStyleBackColor = true;
             // 
-            // textBoxSearchColumn_SMA
+            // labelSortWhichColumn_SMA
             // 
-            textBoxSearchColumn_SMA.Location = new Point(437, 15);
-            textBoxSearchColumn_SMA.Name = "textBoxSearchColumn_SMA";
-            textBoxSearchColumn_SMA.Size = new Size(23, 23);
-            textBoxSearchColumn_SMA.TabIndex = 7;
+            labelSortWhichColumn_SMA.AutoSize = true;
+            labelSortWhichColumn_SMA.Location = new Point(6, 64);
+            labelSortWhichColumn_SMA.Name = "labelSortWhichColumn_SMA";
+            labelSortWhichColumn_SMA.Size = new Size(135, 15);
+            labelSortWhichColumn_SMA.TabIndex = 4;
+            labelSortWhichColumn_SMA.Text = "По убыванию столбца:";
+            // 
+            // textBoxSortWhichColumn_SMA
+            // 
+            textBoxSortWhichColumn_SMA.Location = new Point(141, 61);
+            textBoxSortWhichColumn_SMA.Name = "textBoxSortWhichColumn_SMA";
+            textBoxSortWhichColumn_SMA.Size = new Size(23, 23);
+            textBoxSortWhichColumn_SMA.TabIndex = 9;
+            // 
+            // buttonSortDefaultColumn_SMA
+            // 
+            buttonSortDefaultColumn_SMA.Location = new Point(6, 82);
+            buttonSortDefaultColumn_SMA.Name = "buttonSortDefaultColumn_SMA";
+            buttonSortDefaultColumn_SMA.Size = new Size(103, 24);
+            buttonSortDefaultColumn_SMA.TabIndex = 10;
+            buttonSortDefaultColumn_SMA.Text = "По умолчанию";
+            buttonSortDefaultColumn_SMA.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxSorting_SMA
+            // 
+            groupBoxSorting_SMA.Controls.Add(buttonSortDefaultColumn_SMA);
+            groupBoxSorting_SMA.Controls.Add(textBoxSortWhichColumn_SMA);
+            groupBoxSorting_SMA.Controls.Add(labelSortWhichColumn_SMA);
+            groupBoxSorting_SMA.Controls.Add(buttonSortAscending_SMA);
+            groupBoxSorting_SMA.Controls.Add(buttonSortDescending_SMA);
+            groupBoxSorting_SMA.Location = new Point(320, 43);
+            groupBoxSorting_SMA.Name = "groupBoxSorting_SMA";
+            groupBoxSorting_SMA.Size = new Size(228, 113);
+            groupBoxSorting_SMA.TabIndex = 8;
+            groupBoxSorting_SMA.TabStop = false;
+            groupBoxSorting_SMA.Text = "Сортировка";
+            // 
+            // groupBoxStatistics_SMA
+            // 
+            groupBoxStatistics_SMA.Location = new Point(320, 162);
+            groupBoxStatistics_SMA.Name = "groupBoxStatistics_SMA";
+            groupBoxStatistics_SMA.Size = new Size(470, 291);
+            groupBoxStatistics_SMA.TabIndex = 11;
+            groupBoxStatistics_SMA.TabStop = false;
+            groupBoxStatistics_SMA.Text = "Элементы статистики";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(686, 112);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 12;
+            label1.Text = "label1";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(698, 76);
+            label2.Name = "label2";
+            label2.Size = new Size(38, 15);
+            label2.TabIndex = 13;
+            label2.Text = "label2";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(698, 27);
+            label3.Name = "label3";
+            label3.Size = new Size(38, 15);
+            label3.TabIndex = 14;
+            label3.Text = "label3";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(636, 43);
+            label4.Name = "label4";
+            label4.Size = new Size(38, 15);
+            label4.TabIndex = 15;
+            label4.Text = "label4";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(576, 65);
+            label5.Name = "label5";
+            label5.Size = new Size(38, 15);
+            label5.TabIndex = 16;
+            label5.Text = "label5";
             // 
             // FormEditor
             // 
@@ -151,6 +282,8 @@
             groupBoxWorkSpace_SMA.ResumeLayout(false);
             groupBoxWorkSpace_SMA.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView_SMA).EndInit();
+            groupBoxSorting_SMA.ResumeLayout(false);
+            groupBoxSorting_SMA.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -166,5 +299,17 @@
         private Button buttonClearSearch_SMA;
         private Label labelSearchColumn_SMA;
         private TextBox textBoxSearchColumn_SMA;
+        private GroupBox groupBoxSorting_SMA;
+        private Button buttonSortDefaultColumn_SMA;
+        private TextBox textBoxSortWhichColumn_SMA;
+        private Label labelSortWhichColumn_SMA;
+        private Button buttonSortAscending_SMA;
+        private Button buttonSortDescending_SMA;
+        private GroupBox groupBoxStatistics_SMA;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label label1;
     }
 }
