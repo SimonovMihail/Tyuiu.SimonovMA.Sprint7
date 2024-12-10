@@ -30,9 +30,9 @@
         {
             buttonAbout_SMA = new Button();
             labelName_SMA = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            buttonCalculator_SMA = new Button();
+            buttonEditor_SMA = new Button();
+            buttonSpeedTime_SMA = new Button();
             button4 = new Button();
             SuspendLayout();
             // 
@@ -59,36 +59,37 @@
             labelName_SMA.Text = "Главное меню";
             labelName_SMA.Click += labelName_SMA_Click;
             // 
-            // button1
+            // buttonCalculator_SMA
             // 
-            button1.Anchor = AnchorStyles.None;
-            button1.Location = new Point(61, 106);
-            button1.Name = "button1";
-            button1.Size = new Size(196, 38);
-            button1.TabIndex = 2;
-            button1.Text = "Расчёт расхода топлива";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            buttonCalculator_SMA.Anchor = AnchorStyles.None;
+            buttonCalculator_SMA.Location = new Point(61, 106);
+            buttonCalculator_SMA.Name = "buttonCalculator_SMA";
+            buttonCalculator_SMA.Size = new Size(196, 38);
+            buttonCalculator_SMA.TabIndex = 2;
+            buttonCalculator_SMA.Text = "Расчёт расхода топлива";
+            buttonCalculator_SMA.UseVisualStyleBackColor = true;
+            buttonCalculator_SMA.Click += button1_Click;
             // 
-            // button2
+            // buttonEditor_SMA
             // 
-            button2.Anchor = AnchorStyles.None;
-            button2.Location = new Point(61, 150);
-            button2.Name = "button2";
-            button2.Size = new Size(196, 38);
-            button2.TabIndex = 3;
-            button2.Text = "Редактор автомобильной базы";
-            button2.UseVisualStyleBackColor = true;
+            buttonEditor_SMA.Anchor = AnchorStyles.None;
+            buttonEditor_SMA.Location = new Point(61, 150);
+            buttonEditor_SMA.Name = "buttonEditor_SMA";
+            buttonEditor_SMA.Size = new Size(196, 38);
+            buttonEditor_SMA.TabIndex = 3;
+            buttonEditor_SMA.Text = "Редактор автомобильной базы";
+            buttonEditor_SMA.UseVisualStyleBackColor = true;
+            buttonEditor_SMA.Click += button2_Click;
             // 
-            // button3
+            // buttonSpeedTime_SMA
             // 
-            button3.Anchor = AnchorStyles.None;
-            button3.Location = new Point(61, 194);
-            button3.Name = "button3";
-            button3.Size = new Size(196, 38);
-            button3.TabIndex = 4;
-            button3.Text = "Графики скорости/времени";
-            button3.UseVisualStyleBackColor = true;
+            buttonSpeedTime_SMA.Anchor = AnchorStyles.None;
+            buttonSpeedTime_SMA.Location = new Point(61, 194);
+            buttonSpeedTime_SMA.Name = "buttonSpeedTime_SMA";
+            buttonSpeedTime_SMA.Size = new Size(196, 38);
+            buttonSpeedTime_SMA.TabIndex = 4;
+            buttonSpeedTime_SMA.Text = "Графики скорости/времени";
+            buttonSpeedTime_SMA.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -106,9 +107,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(315, 328);
             Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(buttonSpeedTime_SMA);
+            Controls.Add(buttonEditor_SMA);
+            Controls.Add(buttonCalculator_SMA);
             Controls.Add(labelName_SMA);
             Controls.Add(buttonAbout_SMA);
             MaximizeBox = false;
@@ -125,9 +126,9 @@
 
         private Button buttonAbout_SMA;
         private Label labelName_SMA;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button buttonCalculator_SMA;
+        private Button buttonEditor_SMA;
+        private Button buttonSpeedTime_SMA;
         private Button button4;
     }
 }

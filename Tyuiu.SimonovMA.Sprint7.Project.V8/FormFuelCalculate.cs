@@ -93,16 +93,23 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8
         }
 
         private void buttonCalculate_SMA_Click(object sender, EventArgs e)
-        {   
-            if (string.IsNullOrWhiteSpace(textBoxFuelPrice_SMA.Text))
+        {
+            try
             {
-                textBoxResult_SMA.Text = Convert.ToString(ds.FuelConsuptionCalculate(Convert.ToDouble(textBoxFuelConsumed_SMA.Text), Convert.ToDouble(textBoxKilometersRode_SMA.Text)));
-                textBoxResultPrice_SMA.Text = "-";
+                if (string.IsNullOrWhiteSpace(textBoxFuelPrice_SMA.Text))
+                {
+                    textBoxResult_SMA.Text = Convert.ToString(ds.FuelConsuptionCalculate(Convert.ToDouble(textBoxFuelConsumed_SMA.Text), Convert.ToDouble(textBoxKilometersRode_SMA.Text)));
+                    textBoxResultPrice_SMA.Text = "-";
+                }
+                else
+                {
+                    textBoxResult_SMA.Text = Convert.ToString(ds.FuelConsuptionCalculate(Convert.ToDouble(textBoxFuelConsumed_SMA.Text), Convert.ToDouble(textBoxKilometersRode_SMA.Text)));
+                    textBoxResultPrice_SMA.Text = Convert.ToString(ds.FuelPriceCalculate(Convert.ToDouble(textBoxFuelConsumed_SMA.Text), Convert.ToDouble(textBoxFuelPrice_SMA.Text)));
+                }
             }
-            else
+            catch
             {
-                textBoxResult_SMA.Text = Convert.ToString(ds.FuelConsuptionCalculate(Convert.ToDouble(textBoxFuelConsumed_SMA.Text), Convert.ToDouble(textBoxKilometersRode_SMA.Text)));
-                textBoxResultPrice_SMA.Text = Convert.ToString(ds.FuelPriceCalculate(Convert.ToDouble(textBoxFuelConsumed_SMA.Text), Convert.ToDouble(textBoxFuelPrice_SMA.Text)));
+                MessageBox.Show("Введены неверные данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

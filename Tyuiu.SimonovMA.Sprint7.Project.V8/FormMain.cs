@@ -34,5 +34,13 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8
             formFuel.Location = this.Location;
             formFuel.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormEditor formEdit = new FormEditor();
+            formEdit.StartPosition = FormStartPosition.Manual;
+            formEdit.Location = this.Location;
+            formEdit.ShowDialog();
+        }
     }
 }
