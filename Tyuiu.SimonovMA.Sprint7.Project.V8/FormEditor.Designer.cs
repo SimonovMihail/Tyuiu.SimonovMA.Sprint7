@@ -87,7 +87,7 @@
             groupBoxControls_SMA.Controls.Add(buttonLoad_SMA);
             groupBoxControls_SMA.Location = new Point(2, -3);
             groupBoxControls_SMA.Name = "groupBoxControls_SMA";
-            groupBoxControls_SMA.Size = new Size(796, 59);
+            groupBoxControls_SMA.Size = new Size(836, 59);
             groupBoxControls_SMA.TabIndex = 0;
             groupBoxControls_SMA.TabStop = false;
             // 
@@ -124,7 +124,7 @@
             groupBoxWorkSpace_SMA.Controls.Add(dataGridView_SMA);
             groupBoxWorkSpace_SMA.Location = new Point(2, 52);
             groupBoxWorkSpace_SMA.Name = "groupBoxWorkSpace_SMA";
-            groupBoxWorkSpace_SMA.Size = new Size(796, 463);
+            groupBoxWorkSpace_SMA.Size = new Size(836, 463);
             groupBoxWorkSpace_SMA.TabIndex = 1;
             groupBoxWorkSpace_SMA.TabStop = false;
             // 
@@ -153,9 +153,9 @@
             groupBoxStatistics_SMA.Controls.Add(textBoxCount_SMA);
             groupBoxStatistics_SMA.Controls.Add(labelCount_SMA);
             groupBoxStatistics_SMA.Controls.Add(labelSum_SMA);
-            groupBoxStatistics_SMA.Location = new Point(524, 162);
+            groupBoxStatistics_SMA.Location = new Point(486, 162);
             groupBoxStatistics_SMA.Name = "groupBoxStatistics_SMA";
-            groupBoxStatistics_SMA.Size = new Size(272, 291);
+            groupBoxStatistics_SMA.Size = new Size(350, 291);
             groupBoxStatistics_SMA.TabIndex = 11;
             groupBoxStatistics_SMA.TabStop = false;
             groupBoxStatistics_SMA.Text = "Элементы статистики";
@@ -163,7 +163,7 @@
             // labelMaxWhichColumn_SMA
             // 
             labelMaxWhichColumn_SMA.AutoSize = true;
-            labelMaxWhichColumn_SMA.Location = new Point(96, 263);
+            labelMaxWhichColumn_SMA.Location = new Point(173, 268);
             labelMaxWhichColumn_SMA.Name = "labelMaxWhichColumn_SMA";
             labelMaxWhichColumn_SMA.Size = new Size(57, 15);
             labelMaxWhichColumn_SMA.TabIndex = 32;
@@ -171,32 +171,34 @@
             // 
             // textBoxMaxWhichColumn_SMA
             // 
-            textBoxMaxWhichColumn_SMA.Location = new Point(158, 260);
+            textBoxMaxWhichColumn_SMA.Location = new Point(235, 265);
             textBoxMaxWhichColumn_SMA.Name = "textBoxMaxWhichColumn_SMA";
             textBoxMaxWhichColumn_SMA.Size = new Size(23, 23);
             textBoxMaxWhichColumn_SMA.TabIndex = 31;
             // 
             // buttonMaxCalculate_SMA
             // 
-            buttonMaxCalculate_SMA.Location = new Point(187, 231);
+            buttonMaxCalculate_SMA.Location = new Point(264, 236);
             buttonMaxCalculate_SMA.Name = "buttonMaxCalculate_SMA";
             buttonMaxCalculate_SMA.Size = new Size(75, 23);
             buttonMaxCalculate_SMA.TabIndex = 30;
             buttonMaxCalculate_SMA.Text = "Посчитать";
             buttonMaxCalculate_SMA.UseVisualStyleBackColor = true;
+            buttonMaxCalculate_SMA.Click += buttonMaxCalculate_SMA_Click;
             // 
             // textBoxMax_SMA
             // 
-            textBoxMax_SMA.Location = new Point(158, 231);
+            textBoxMax_SMA.Location = new Point(180, 236);
             textBoxMax_SMA.Name = "textBoxMax_SMA";
             textBoxMax_SMA.ReadOnly = true;
-            textBoxMax_SMA.Size = new Size(23, 23);
+            textBoxMax_SMA.Size = new Size(78, 23);
             textBoxMax_SMA.TabIndex = 29;
+            textBoxMax_SMA.TextChanged += textBoxMax_SMA_TextChanged;
             // 
             // labelMax_SMA
             // 
             labelMax_SMA.AutoSize = true;
-            labelMax_SMA.Location = new Point(4, 235);
+            labelMax_SMA.Location = new Point(32, 240);
             labelMax_SMA.Name = "labelMax_SMA";
             labelMax_SMA.Size = new Size(148, 15);
             labelMax_SMA.TabIndex = 28;
@@ -205,7 +207,7 @@
             // labelMinWhichColumn_SMA
             // 
             labelMinWhichColumn_SMA.AutoSize = true;
-            labelMinWhichColumn_SMA.Location = new Point(96, 206);
+            labelMinWhichColumn_SMA.Location = new Point(173, 211);
             labelMinWhichColumn_SMA.Name = "labelMinWhichColumn_SMA";
             labelMinWhichColumn_SMA.Size = new Size(57, 15);
             labelMinWhichColumn_SMA.TabIndex = 27;
@@ -213,32 +215,34 @@
             // 
             // textBoxMinWhichColumn_SMA
             // 
-            textBoxMinWhichColumn_SMA.Location = new Point(158, 203);
+            textBoxMinWhichColumn_SMA.Location = new Point(235, 208);
             textBoxMinWhichColumn_SMA.Name = "textBoxMinWhichColumn_SMA";
             textBoxMinWhichColumn_SMA.Size = new Size(23, 23);
             textBoxMinWhichColumn_SMA.TabIndex = 26;
             // 
             // buttonMinCalculate_SMA
             // 
-            buttonMinCalculate_SMA.Location = new Point(187, 174);
+            buttonMinCalculate_SMA.Location = new Point(264, 179);
             buttonMinCalculate_SMA.Name = "buttonMinCalculate_SMA";
             buttonMinCalculate_SMA.Size = new Size(75, 23);
             buttonMinCalculate_SMA.TabIndex = 25;
             buttonMinCalculate_SMA.Text = "Посчитать";
             buttonMinCalculate_SMA.UseVisualStyleBackColor = true;
+            buttonMinCalculate_SMA.Click += buttonMinCalculate_SMA_Click;
             // 
             // textBoxMin_SMA
             // 
-            textBoxMin_SMA.Location = new Point(158, 174);
+            textBoxMin_SMA.Location = new Point(180, 179);
             textBoxMin_SMA.Name = "textBoxMin_SMA";
             textBoxMin_SMA.ReadOnly = true;
-            textBoxMin_SMA.Size = new Size(23, 23);
+            textBoxMin_SMA.Size = new Size(78, 23);
             textBoxMin_SMA.TabIndex = 24;
+            textBoxMin_SMA.TextChanged += textBoxMin_SMA_TextChanged;
             // 
             // labelMin_SMA
             // 
             labelMin_SMA.AutoSize = true;
-            labelMin_SMA.Location = new Point(9, 178);
+            labelMin_SMA.Location = new Point(36, 183);
             labelMin_SMA.Name = "labelMin_SMA";
             labelMin_SMA.Size = new Size(144, 15);
             labelMin_SMA.TabIndex = 23;
@@ -247,7 +251,7 @@
             // labelMeanWhichColumn_SMA
             // 
             labelMeanWhichColumn_SMA.AutoSize = true;
-            labelMeanWhichColumn_SMA.Location = new Point(96, 148);
+            labelMeanWhichColumn_SMA.Location = new Point(173, 153);
             labelMeanWhichColumn_SMA.Name = "labelMeanWhichColumn_SMA";
             labelMeanWhichColumn_SMA.Size = new Size(57, 15);
             labelMeanWhichColumn_SMA.TabIndex = 22;
@@ -255,31 +259,33 @@
             // 
             // textBoxMeanWhichColumn_SMA
             // 
-            textBoxMeanWhichColumn_SMA.Location = new Point(158, 145);
+            textBoxMeanWhichColumn_SMA.Location = new Point(235, 150);
             textBoxMeanWhichColumn_SMA.Name = "textBoxMeanWhichColumn_SMA";
             textBoxMeanWhichColumn_SMA.Size = new Size(23, 23);
             textBoxMeanWhichColumn_SMA.TabIndex = 21;
             // 
             // buttonMeanCalculate_SMA
             // 
-            buttonMeanCalculate_SMA.Location = new Point(187, 116);
+            buttonMeanCalculate_SMA.Location = new Point(264, 121);
             buttonMeanCalculate_SMA.Name = "buttonMeanCalculate_SMA";
             buttonMeanCalculate_SMA.Size = new Size(75, 23);
             buttonMeanCalculate_SMA.TabIndex = 20;
             buttonMeanCalculate_SMA.Text = "Посчитать";
             buttonMeanCalculate_SMA.UseVisualStyleBackColor = true;
+            buttonMeanCalculate_SMA.Click += buttonMeanCalculate_SMA_Click;
             // 
             // textBoxMean_SMA
             // 
-            textBoxMean_SMA.Location = new Point(158, 116);
+            textBoxMean_SMA.Location = new Point(178, 121);
             textBoxMean_SMA.Name = "textBoxMean_SMA";
             textBoxMean_SMA.ReadOnly = true;
-            textBoxMean_SMA.Size = new Size(23, 23);
+            textBoxMean_SMA.Size = new Size(80, 23);
             textBoxMean_SMA.TabIndex = 18;
+            textBoxMean_SMA.TextChanged += textBoxMean_SMA_TextChanged;
             // 
             // textBoxSumWhichColumn_SMA
             // 
-            textBoxSumWhichColumn_SMA.Location = new Point(158, 86);
+            textBoxSumWhichColumn_SMA.Location = new Point(235, 91);
             textBoxSumWhichColumn_SMA.Name = "textBoxSumWhichColumn_SMA";
             textBoxSumWhichColumn_SMA.Size = new Size(23, 23);
             textBoxSumWhichColumn_SMA.TabIndex = 17;
@@ -287,7 +293,7 @@
             // labelMean_SMA
             // 
             labelMean_SMA.AutoSize = true;
-            labelMean_SMA.Location = new Point(47, 119);
+            labelMean_SMA.Location = new Point(62, 125);
             labelMean_SMA.Name = "labelMean_SMA";
             labelMean_SMA.Size = new Size(110, 15);
             labelMean_SMA.TabIndex = 15;
@@ -295,25 +301,27 @@
             // 
             // buttonSumCalculate_SMA
             // 
-            buttonSumCalculate_SMA.Location = new Point(187, 57);
+            buttonSumCalculate_SMA.Location = new Point(264, 62);
             buttonSumCalculate_SMA.Name = "buttonSumCalculate_SMA";
             buttonSumCalculate_SMA.Size = new Size(75, 23);
             buttonSumCalculate_SMA.TabIndex = 15;
             buttonSumCalculate_SMA.Text = "Посчитать";
             buttonSumCalculate_SMA.UseVisualStyleBackColor = true;
+            buttonSumCalculate_SMA.Click += buttonSumCalculate_SMA_Click;
             // 
             // textBoxSum_SMA
             // 
-            textBoxSum_SMA.Location = new Point(158, 57);
+            textBoxSum_SMA.Location = new Point(178, 62);
             textBoxSum_SMA.Name = "textBoxSum_SMA";
             textBoxSum_SMA.ReadOnly = true;
-            textBoxSum_SMA.Size = new Size(23, 23);
+            textBoxSum_SMA.Size = new Size(80, 23);
             textBoxSum_SMA.TabIndex = 14;
+            textBoxSum_SMA.TextChanged += textBoxSum_SMA_TextChanged;
             // 
             // labelSumWhichColumn_SMA
             // 
             labelSumWhichColumn_SMA.AutoSize = true;
-            labelSumWhichColumn_SMA.Location = new Point(101, 89);
+            labelSumWhichColumn_SMA.Location = new Point(178, 94);
             labelSumWhichColumn_SMA.Name = "labelSumWhichColumn_SMA";
             labelSumWhichColumn_SMA.Size = new Size(57, 15);
             labelSumWhichColumn_SMA.TabIndex = 14;
@@ -321,25 +329,27 @@
             // 
             // buttonCountCalculate_SMA
             // 
-            buttonCountCalculate_SMA.Location = new Point(187, 20);
+            buttonCountCalculate_SMA.Location = new Point(264, 25);
             buttonCountCalculate_SMA.Name = "buttonCountCalculate_SMA";
             buttonCountCalculate_SMA.Size = new Size(75, 24);
             buttonCountCalculate_SMA.TabIndex = 13;
             buttonCountCalculate_SMA.Text = "Посчитать";
             buttonCountCalculate_SMA.UseVisualStyleBackColor = true;
+            buttonCountCalculate_SMA.Click += buttonCountCalculate_SMA_Click;
             // 
             // textBoxCount_SMA
             // 
-            textBoxCount_SMA.Location = new Point(158, 21);
+            textBoxCount_SMA.Location = new Point(235, 26);
             textBoxCount_SMA.Name = "textBoxCount_SMA";
             textBoxCount_SMA.ReadOnly = true;
             textBoxCount_SMA.Size = new Size(23, 23);
             textBoxCount_SMA.TabIndex = 11;
+            textBoxCount_SMA.TextChanged += textBoxCount_SMA_TextChanged;
             // 
             // labelCount_SMA
             // 
             labelCount_SMA.AutoSize = true;
-            labelCount_SMA.Location = new Point(23, 24);
+            labelCount_SMA.Location = new Point(100, 29);
             labelCount_SMA.Name = "labelCount_SMA";
             labelCount_SMA.Size = new Size(137, 15);
             labelCount_SMA.TabIndex = 12;
@@ -348,7 +358,7 @@
             // labelSum_SMA
             // 
             labelSum_SMA.AutoSize = true;
-            labelSum_SMA.Location = new Point(109, 60);
+            labelSum_SMA.Location = new Point(124, 66);
             labelSum_SMA.Name = "labelSum_SMA";
             labelSum_SMA.Size = new Size(48, 15);
             labelSum_SMA.TabIndex = 13;
@@ -361,16 +371,16 @@
             groupBoxSorting_SMA.Controls.Add(labelSortWhichColumn_SMA);
             groupBoxSorting_SMA.Controls.Add(buttonSortAscending_SMA);
             groupBoxSorting_SMA.Controls.Add(buttonSortDescending_SMA);
-            groupBoxSorting_SMA.Location = new Point(524, 43);
+            groupBoxSorting_SMA.Location = new Point(486, 43);
             groupBoxSorting_SMA.Name = "groupBoxSorting_SMA";
-            groupBoxSorting_SMA.Size = new Size(228, 113);
+            groupBoxSorting_SMA.Size = new Size(350, 113);
             groupBoxSorting_SMA.TabIndex = 8;
             groupBoxSorting_SMA.TabStop = false;
             groupBoxSorting_SMA.Text = "Сортировка";
             // 
             // buttonSortDefaultColumn_SMA
             // 
-            buttonSortDefaultColumn_SMA.Location = new Point(5, 85);
+            buttonSortDefaultColumn_SMA.Location = new Point(181, 84);
             buttonSortDefaultColumn_SMA.Name = "buttonSortDefaultColumn_SMA";
             buttonSortDefaultColumn_SMA.Size = new Size(158, 24);
             buttonSortDefaultColumn_SMA.TabIndex = 10;
@@ -380,7 +390,7 @@
             // 
             // textBoxSortWhichColumn_SMA
             // 
-            textBoxSortWhichColumn_SMA.Location = new Point(141, 61);
+            textBoxSortWhichColumn_SMA.Location = new Point(317, 60);
             textBoxSortWhichColumn_SMA.Name = "textBoxSortWhichColumn_SMA";
             textBoxSortWhichColumn_SMA.Size = new Size(23, 23);
             textBoxSortWhichColumn_SMA.TabIndex = 9;
@@ -388,7 +398,7 @@
             // labelSortWhichColumn_SMA
             // 
             labelSortWhichColumn_SMA.AutoSize = true;
-            labelSortWhichColumn_SMA.Location = new Point(6, 64);
+            labelSortWhichColumn_SMA.Location = new Point(182, 63);
             labelSortWhichColumn_SMA.Name = "labelSortWhichColumn_SMA";
             labelSortWhichColumn_SMA.Size = new Size(135, 15);
             labelSortWhichColumn_SMA.TabIndex = 4;
@@ -396,7 +406,7 @@
             // 
             // buttonSortAscending_SMA
             // 
-            buttonSortAscending_SMA.Location = new Point(113, 22);
+            buttonSortAscending_SMA.Location = new Point(117, 22);
             buttonSortAscending_SMA.Name = "buttonSortAscending_SMA";
             buttonSortAscending_SMA.Size = new Size(107, 36);
             buttonSortAscending_SMA.TabIndex = 3;
@@ -465,7 +475,7 @@
             dataGridView_SMA.Location = new Point(6, 43);
             dataGridView_SMA.Name = "dataGridView_SMA";
             dataGridView_SMA.RowHeadersVisible = false;
-            dataGridView_SMA.Size = new Size(512, 410);
+            dataGridView_SMA.Size = new Size(474, 410);
             dataGridView_SMA.TabIndex = 2;
             // 
             // CarBrand
@@ -498,7 +508,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 517);
+            ClientSize = new Size(840, 517);
             Controls.Add(groupBoxWorkSpace_SMA);
             Controls.Add(groupBoxControls_SMA);
             FormBorderStyle = FormBorderStyle.FixedSingle;

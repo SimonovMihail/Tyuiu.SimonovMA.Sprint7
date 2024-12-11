@@ -248,5 +248,310 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8
         {
             textBoxSortWhichColumn_SMA.Clear();
         }
+
+        private void buttonCountCalculate_SMA_Click(object sender, EventArgs e)
+        {
+            // изначально считаем все строки, кроме заголовочной
+            int rowCount = dataGridView_SMA.Rows.Count;
+
+            // исключаем новую строку, если включено AllowUserToAddRows и строка является новой
+            if (dataGridView_SMA.AllowUserToAddRows && dataGridView_SMA.Rows[rowCount - 1].IsNewRow)
+            {
+                rowCount--;
+            }
+
+            // исключаем заголовочную строку
+            rowCount--;
+
+            // убедимся, что результат не уходит в отрицательные значения
+            rowCount = Math.Max(0, rowCount) + 1;
+
+            // записываем результат в текстовое поле
+            textBoxCount_SMA.Text = rowCount.ToString();
+        }
+
+
+        private void textBoxCount_SMA_TextChanged(object sender, EventArgs e)
+        {
+            // случайно создал, не трогаю, а то ошибка вылетит
+        }
+
+        private void buttonSumCalculate_SMA_Click(object sender, EventArgs e)
+        {
+            // проверка на то указан ли номер столбца
+            if (string.IsNullOrWhiteSpace(textBoxSumWhichColumn_SMA.Text))
+            {
+                MessageBox.Show("Введите номер столбца для подсчёта суммы.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // попытка преобразовать ввод в номер столбца
+            if (!int.TryParse(textBoxSumWhichColumn_SMA.Text, out int columnIndex) || columnIndex < 1 || columnIndex > dataGridView_SMA.ColumnCount)
+            {
+                MessageBox.Show("Указан неверный номер столбца.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // приведение индекса к системе DataGridView (с учётом начала с 0)
+            columnIndex--;
+
+            // переменная для хранения суммы
+            double sum = 0;
+
+            // флаг для проверки ошибок в данных
+            bool hasInvalidData = false;
+
+            // итерация по строкам (кроме заголовочной)
+            for (int i = 1; i < dataGridView_SMA.Rows.Count; i++)
+            {
+                // пропуск новой строки если она активна
+                if (dataGridView_SMA.AllowUserToAddRows && dataGridView_SMA.Rows[i].IsNewRow)
+                {
+                    continue;
+                }
+
+                // попытка получить значение из ячейки
+                var cellValue = dataGridView_SMA.Rows[i].Cells[columnIndex].Value;
+
+                if (cellValue != null && double.TryParse(cellValue.ToString(), out double cellNumber))
+                {
+                    sum += cellNumber; // суммирование
+                }
+                else if (cellValue != null) // если данные не числовые
+                {
+                    hasInvalidData = true; // устанавливаем флаг ошибки
+                }
+            }
+
+            // если обнаружены некорректные данные
+            if (hasInvalidData)
+            {
+                MessageBox.Show("Некоторые ячейки в указанном столбце содержат некорректные данные (не числа). Они были пропущены при подсчёте.", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            // вывод суммы в текстовое поле
+            textBoxSum_SMA.Text = sum.ToString();
+        }
+
+
+        private void textBoxSum_SMA_TextChanged(object sender, EventArgs e)
+        {
+            // случайно создал, не трогаю, а то ошибка вылетит
+        }
+
+        private void buttonMeanCalculate_SMA_Click(object sender, EventArgs e)
+        {
+            // проверка на то указан ли номер столбца
+            if (string.IsNullOrWhiteSpace(textBoxMeanWhichColumn_SMA.Text))
+            {
+                MessageBox.Show("Введите номер столбца для подсчёта среднего значения.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // попытка преобразовать ввод в номер столбца
+            if (!int.TryParse(textBoxMeanWhichColumn_SMA.Text, out int columnIndex) || columnIndex < 1 || columnIndex > dataGridView_SMA.ColumnCount)
+            {
+                MessageBox.Show("Указан неверный номер столбца.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // приведение индекса к системе DataGridView (с учётом начала с 0)
+            columnIndex--;
+
+            // переменные для подсчёта суммы и количества числовых элементов
+            double sum = 0;
+            int count = 0;
+
+            // флаг для проверки ошибок в данных
+            bool hasInvalidData = false;
+
+            // итерация по строкам (кроме заголовочной)
+            for (int i = 1; i < dataGridView_SMA.Rows.Count; i++)
+            {
+                // пропуск новой строки, если она активна
+                if (dataGridView_SMA.AllowUserToAddRows && dataGridView_SMA.Rows[i].IsNewRow)
+                {
+                    continue;
+                }
+
+                // попытка получить значение из ячейки
+                var cellValue = dataGridView_SMA.Rows[i].Cells[columnIndex].Value;
+
+                if (cellValue != null && double.TryParse(cellValue.ToString(), out double cellNumber))
+                {
+                    sum += cellNumber; // добавляем к сумме
+                    count++;           // увеличиваем счётчик
+                }
+                else if (cellValue != null) // если данные не числовые
+                {
+                    hasInvalidData = true; // устанавливаем флаг ошибки
+                }
+            }
+
+            // если обнаружены некорректные данные
+            if (hasInvalidData)
+            {
+                MessageBox.Show("Некоторые ячейки в указанном столбце содержат некорректные данные (не числа). Они были пропущены при подсчёте.", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            // вычисление среднего значения
+            double mean = count > 0 ? sum / count : 0;
+
+            // вывод среднего значения в текстовое поле
+            textBoxMean_SMA.Text = mean.ToString();
+        }
+
+        private void textBoxMean_SMA_TextChanged(object sender, EventArgs e)
+        {
+            // случайно создал, не трогаю, а то ошибка вылетит
+        }
+
+        private void buttonMinCalculate_SMA_Click(object sender, EventArgs e)
+        {
+            // проверка на то указан ли номер столбца
+            if (string.IsNullOrWhiteSpace(textBoxMinWhichColumn_SMA.Text))
+            {
+                MessageBox.Show("Введите номер столбца для подсчёта минимального значения.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // попытка преобразовать ввод в номер столбца
+            if (!int.TryParse(textBoxMinWhichColumn_SMA.Text, out int columnIndex) || columnIndex < 1 || columnIndex > dataGridView_SMA.ColumnCount)
+            {
+                MessageBox.Show("Указан неверный номер столбца.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // приведение индекса к системе DataGridView (с учётом начала с 0)
+            columnIndex--;
+
+            // переменная для хранения минимального значения
+            double? minValue = null;
+
+            // флаг для проверки ошибок в данных
+            bool hasInvalidData = false;
+
+            // итерация по строкам (кроме заголовочной)
+            for (int i = 1; i < dataGridView_SMA.Rows.Count; i++)
+            {
+                // пропуск новой строки если она активна
+                if (dataGridView_SMA.AllowUserToAddRows && dataGridView_SMA.Rows[i].IsNewRow)
+                {
+                    continue;
+                }
+
+                // поптка получить значение из ячейки
+                var cellValue = dataGridView_SMA.Rows[i].Cells[columnIndex].Value;
+
+                if (cellValue != null && double.TryParse(cellValue.ToString(), out double cellNumber))
+                {
+                    if (minValue == null || cellNumber < minValue)
+                    {
+                        minValue = cellNumber; // обновлени минимального значения
+                    }
+                }
+                else if (cellValue != null) // если данные не числовые
+                {
+                    hasInvalidData = true; // устанавливаем флаг ошибки
+                }
+            }
+
+            // если обнаружены некорректные данные
+            if (hasInvalidData)
+            {
+                MessageBox.Show("Некоторые ячейки в указанном столбце содержат некорректные данные (не числа). Они были пропущены при подсчёте.", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            // вывод минимального значения или сообщения если столбец пуст
+            if (minValue.HasValue)
+            {
+                textBoxMin_SMA.Text = minValue.Value.ToString();
+            }
+            else
+            {
+                MessageBox.Show("В указанном столбце нет числовых данных.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                textBoxMin_SMA.Text = string.Empty;
+            }
+        }
+
+
+        private void textBoxMin_SMA_TextChanged(object sender, EventArgs e)
+        {
+            // случайно создал, не трогаю, а то ошибка вылетит
+        }
+
+        private void buttonMaxCalculate_SMA_Click(object sender, EventArgs e)
+        {
+            // проверка на то указан ли номер столбца
+            if (string.IsNullOrWhiteSpace(textBoxMaxWhichColumn_SMA.Text))
+            {
+                MessageBox.Show("Введите номер столбца для подсчёта максимального значения.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // попытка преобразовать ввод в номер столбца
+            if (!int.TryParse(textBoxMaxWhichColumn_SMA.Text, out int columnIndex) || columnIndex < 1 || columnIndex > dataGridView_SMA.ColumnCount)
+            {
+                MessageBox.Show("Указан неверный номер столбца.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // приведение индекса к системе DataGridView (с учётом начала с 0)
+            columnIndex--;
+
+            // переменная для хранения максимального значения
+            double? maxValue = null;
+
+            // флаг для проверки ошибок в данных
+            bool hasInvalidData = false;
+
+            // итерация по строкам (кроме заголовочной)
+            for (int i = 1; i < dataGridView_SMA.Rows.Count; i++)
+            {
+                // пропуск новой строки, если она активна
+                if (dataGridView_SMA.AllowUserToAddRows && dataGridView_SMA.Rows[i].IsNewRow)
+                {
+                    continue;
+                }
+
+                // попытка получить значение из ячейки
+                var cellValue = dataGridView_SMA.Rows[i].Cells[columnIndex].Value;
+
+                if (cellValue != null && double.TryParse(cellValue.ToString(), out double cellNumber))
+                {
+                    if (maxValue == null || cellNumber > maxValue)
+                    {
+                        maxValue = cellNumber; // обновление максимального значения
+                    }
+                }
+                else if (cellValue != null) // если данные не числовые
+                {
+                    hasInvalidData = true; // устанавливаем флаг ошибки
+                }
+            }
+
+            // если обнаружены некорректные данные
+            if (hasInvalidData)
+            {
+                MessageBox.Show("Некоторые ячейки в указанном столбце содержат некорректные данные (не числа). Они были пропущены при подсчёте.", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            // вывод максимального значения или сообщения если столбец пуст
+            if (maxValue.HasValue)
+            {
+                textBoxMax_SMA.Text = maxValue.Value.ToString();
+            }
+            else
+            {
+                MessageBox.Show("В указанном столбце нет числовых данных.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                textBoxMax_SMA.Text = string.Empty;
+            }
+        }
+
+
+        private void textBoxMax_SMA_TextChanged(object sender, EventArgs e)
+        {
+            // случайно создал, не трогаю, а то ошибка вылетит
+        }
     }
 }
