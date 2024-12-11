@@ -73,6 +73,7 @@
             CarWeight = new DataGridViewTextBoxColumn();
             CarPower = new DataGridViewTextBoxColumn();
             CarFuelConsuption = new DataGridViewTextBoxColumn();
+            buttonStatisticsClear_SMA = new Button();
             groupBoxControls_SMA.SuspendLayout();
             groupBoxWorkSpace_SMA.SuspendLayout();
             groupBoxStatistics_SMA.SuspendLayout();
@@ -130,6 +131,7 @@
             // 
             // groupBoxStatistics_SMA
             // 
+            groupBoxStatistics_SMA.Controls.Add(buttonStatisticsClear_SMA);
             groupBoxStatistics_SMA.Controls.Add(labelMaxWhichColumn_SMA);
             groupBoxStatistics_SMA.Controls.Add(textBoxMaxWhichColumn_SMA);
             groupBoxStatistics_SMA.Controls.Add(buttonMaxCalculate_SMA);
@@ -504,6 +506,16 @@
             CarFuelConsuption.HeaderText = "Расход топлива (л. на 100 км.)";
             CarFuelConsuption.Name = "CarFuelConsuption";
             // 
+            // buttonStatisticsClear_SMA
+            // 
+            buttonStatisticsClear_SMA.Location = new Point(8, 25);
+            buttonStatisticsClear_SMA.Name = "buttonStatisticsClear_SMA";
+            buttonStatisticsClear_SMA.Size = new Size(75, 23);
+            buttonStatisticsClear_SMA.TabIndex = 2;
+            buttonStatisticsClear_SMA.Text = "Очистить";
+            buttonStatisticsClear_SMA.UseVisualStyleBackColor = true;
+            buttonStatisticsClear_SMA.Click += buttonStatisticsClear_SMA_Click;
+            // 
             // FormEditor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -573,5 +585,6 @@
         private DataGridViewTextBoxColumn CarWeight;
         private DataGridViewTextBoxColumn CarPower;
         private DataGridViewTextBoxColumn CarFuelConsuption;
+        private Button buttonStatisticsClear_SMA;
     }
 }

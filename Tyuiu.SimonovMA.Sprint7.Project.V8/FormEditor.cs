@@ -553,5 +553,18 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8
         {
             // случайно создал, не трогаю, а то ошибка вылетит
         }
+
+        private void buttonStatisticsClear_SMA_Click(object sender, EventArgs e)
+        {
+            textBoxCount_SMA.Clear(); // чистит все поля элементов статистики
+            textBoxSum_SMA.Clear();
+            textBoxSumWhichColumn_SMA.Clear();
+            textBoxMean_SMA.Clear();
+            textBoxMeanWhichColumn_SMA.Clear();
+            textBoxMin_SMA.Clear();
+            textBoxMinWhichColumn_SMA.Clear();
+            textBoxMax_SMA.Clear();
+            textBoxMaxWhichColumn_SMA.Clear();
+        }
     }
 }

@@ -90,6 +90,7 @@
             buttonSpeedTime_SMA.TabIndex = 4;
             buttonSpeedTime_SMA.Text = "Графики скорости/времени";
             buttonSpeedTime_SMA.UseVisualStyleBackColor = true;
+            buttonSpeedTime_SMA.Click += buttonSpeedTime_SMA_Click;
             // 
             // button4
             // 

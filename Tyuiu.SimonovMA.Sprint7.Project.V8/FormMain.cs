@@ -42,5 +42,13 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8
             formEdit.Location = this.Location;
             formEdit.ShowDialog();
         }
+
+        private void buttonSpeedTime_SMA_Click(object sender, EventArgs e)
+        {
+            FormGraphDrawer formDrawer = new FormGraphDrawer();
+            formDrawer.StartPosition = FormStartPosition.Manual;
+            formDrawer.Location = this.Location;
+            formDrawer.ShowDialog();
+        }
     }
 }
