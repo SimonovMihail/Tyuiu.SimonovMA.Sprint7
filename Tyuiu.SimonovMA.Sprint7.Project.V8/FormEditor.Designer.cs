@@ -370,12 +370,13 @@
             // 
             // buttonSortDefaultColumn_SMA
             // 
-            buttonSortDefaultColumn_SMA.Location = new Point(6, 82);
+            buttonSortDefaultColumn_SMA.Location = new Point(5, 85);
             buttonSortDefaultColumn_SMA.Name = "buttonSortDefaultColumn_SMA";
-            buttonSortDefaultColumn_SMA.Size = new Size(103, 24);
+            buttonSortDefaultColumn_SMA.Size = new Size(158, 24);
             buttonSortDefaultColumn_SMA.TabIndex = 10;
-            buttonSortDefaultColumn_SMA.Text = "По умолчанию";
+            buttonSortDefaultColumn_SMA.Text = "Столбец о умолчанию";
             buttonSortDefaultColumn_SMA.UseVisualStyleBackColor = true;
+            buttonSortDefaultColumn_SMA.Click += buttonSortDefaultColumn_SMA_Click;
             // 
             // textBoxSortWhichColumn_SMA
             // 
@@ -401,6 +402,7 @@
             buttonSortAscending_SMA.TabIndex = 3;
             buttonSortAscending_SMA.Text = "По возрастанию";
             buttonSortAscending_SMA.UseVisualStyleBackColor = true;
+            buttonSortAscending_SMA.Click += buttonSortAscending_SMA_Click;
             // 
             // buttonSortDescending_SMA
             // 
@@ -410,6 +412,7 @@
             buttonSortDescending_SMA.TabIndex = 2;
             buttonSortDescending_SMA.Text = "По убыванию";
             buttonSortDescending_SMA.UseVisualStyleBackColor = true;
+            buttonSortDescending_SMA.Click += buttonSortDescending_SMA_Click;
             // 
             // textBoxSearchColumn_SMA
             // 
@@ -475,13 +478,11 @@
             // 
             CarModel.HeaderText = "Модель";
             CarModel.Name = "CarModel";
-            CarModel.Width = 55;
             // 
             // CarWeight
             // 
             CarWeight.HeaderText = "Вес (кг)";
             CarWeight.Name = "CarWeight";
-            CarWeight.Width = 50;
             // 
             // CarPower
             // 

@@ -26,40 +26,40 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8
                 Title = "Выберите файл для загрузки"
             };
 
-            // Если пользователь выбрал файл
+            // если пользователь выбрал файл
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
 
                 try
                 {
-                    // Чтение всех строк из файла
+                    // чтение всех строк из файла
                     string[] lines = File.ReadAllLines(filePath);
 
-                    // Убедимся, что файл не пуст
+                    // убедимся что файл не пуст
                     if (lines.Length > 0)
                     {
-                        // Отключаем добавление новой строки перед очисткой
+                        // отключаем добвление новой строки перед очисткой
                         bool previousAllowUserToAddRows = dataGridView_SMA.AllowUserToAddRows;
                         dataGridView_SMA.AllowUserToAddRows = false;
 
-                        // Очистка всех строк ниже заголовков
+                        // очистка всех строк ниже заголовков
                         while (dataGridView_SMA.Rows.Count > 0)
                         {
                             dataGridView_SMA.Rows.RemoveAt(0); // Удаляем строки, начиная со второй
                         }
 
-                        // Заполнение данными из файла
+                        // заполнение из файла
                         foreach (string line in lines)
                         {
-                            // Разделение строки на ячейки (используем разделитель запятая)
+                            // разделение строки на ячейки
                             string[] values = line.Split(';');
 
-                            // Добавляем новую строку
+                            // добавляем новую строку
                             dataGridView_SMA.Rows.Add(values);
                         }
 
-                        // Восстанавливаем настройку добавления строки
+                        // восстанавливаем настройку добавления строки
                         dataGridView_SMA.AllowUserToAddRows = previousAllowUserToAddRows;
 
                         MessageBox.Show("Данные успешно загружены!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -78,7 +78,7 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8
 
         private void buttonSave_SMA_Click(object sender, EventArgs e)
         {
-            // Создание диалога сохранения файла
+            // создание диалога сохранения файла
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
                 Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*",
@@ -86,31 +86,31 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8
                 DefaultExt = "csv"
             };
 
-            // Если пользователь выбрал файл
+            // если пользователь выбрал файл
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = saveFileDialog.FileName;
 
                 try
                 {
-                    // Список строк для записи в файл
+                    // список стрк для записи в файл
                     List<string> lines = new List<string>();
 
-                    // Перебор строк DataGridView, начиная с индекса 1 (пропускаем первую строку)
+                    // перебор строк, начиная с индекса 1
                     for (int i = 0; i < dataGridView_SMA.Rows.Count; i++)
                     {
                         DataGridViewRow row = dataGridView_SMA.Rows[i];
 
-                        // Игнорируем новую строку, если она есть
+                        // игнорируем новую строку, если она есть
                         if (row.IsNewRow)
                             continue;
 
-                        // Собираем данные из ячеек строки, разделяя их точкой с запятой
+                        // собираем данные из ячеек строки, разделяя их точкой с запятой
                         string line = string.Join(";", row.Cells.Cast<DataGridViewCell>().Select(cell => cell.Value?.ToString() ?? ""));
                         lines.Add(line);
                     }
 
-                    // Запись всех строк в файл
+                    // запись всех строк в файл
                     File.WriteAllLines(filePath, lines);
 
                     MessageBox.Show("Данные успешно сохранены!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -124,7 +124,7 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8
 
         private void buttonDataSearch_SMA_Click(object sender, EventArgs e)
         {
-            // Получаем текст для поиска
+            // получаем текст для поиска
             string searchText = textBoxSearch_SMA.Text.Trim();
             if (string.IsNullOrEmpty(searchText))
             {
@@ -132,8 +132,8 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8
                 return;
             }
 
-            // Определяем индекс столбца для поиска
-            int searchColumnIndex = 0; // По умолчанию ищем в первом столбце
+            // определяем индекс столбца для поиска
+            int searchColumnIndex = 0; // по умолчанию ищем в первом столбце
             if (!string.IsNullOrEmpty(textBoxSearchColumn_SMA.Text.Trim()))
             {
                 if (!int.TryParse(textBoxSearchColumn_SMA.Text.Trim(), out searchColumnIndex))
@@ -142,10 +142,10 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8
                     return;
                 }
 
-                // Преобразуем номер столбца (начиная с 1) в индекс (начиная с 0)
+                // преобразуем номер столбца (начиная с 1) в индекс (начиная с 0)
                 searchColumnIndex -= 1;
 
-                // Проверяем, чтобы индекс столбца был в пределах допустимых значений
+                // проверяем чтобы индекс столбца был в пределах допустимых значений
                 if (searchColumnIndex < 0 || searchColumnIndex >= dataGridView_SMA.ColumnCount)
                 {
                     MessageBox.Show("Указан некорректный номер столбца.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -153,27 +153,27 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8
                 }
             }
 
-            // Выполняем поиск
+            // выполняем поиск
             List<string> foundRows = new List<string>();
             foreach (DataGridViewRow row in dataGridView_SMA.Rows)
             {
-                // Игнорируем новую строку
+                // игнорируем новую строку
                 if (row.IsNewRow)
                     continue;
 
-                // Получаем значение в указанном столбце
+                // получаем значение в указанном столбце
                 string cellValue = row.Cells[searchColumnIndex].Value?.ToString() ?? "";
 
-                // Сравниваем значение с искомым текстом
+                // сравниваем значение с искомым текстом
                 if (cellValue.Equals(searchText, StringComparison.OrdinalIgnoreCase))
                 {
-                    // Формируем строку с данными всей строки
+                    // формируем строку с данными всей строки
                     string rowData = string.Join(" | ", row.Cells.Cast<DataGridViewCell>().Select(cell => cell.Value?.ToString() ?? ""));
                     foundRows.Add(rowData);
                 }
             }
 
-            // Отображаем результат
+            // отображаем результат
             if (foundRows.Count > 0)
             {
                 MessageBox.Show("Найдены следующие строки:\n" + string.Join("\n", foundRows), "Результаты поиска", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -190,5 +190,63 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8
             textBoxSearchColumn_SMA.Clear();
         }
 
+        private void buttonSortDescending_SMA_Click(object sender, EventArgs e)
+        {
+            // получаем номер столбца для сортировки
+            int sortColumnIndex = 0; // по умолчанию сортируем по первому столбцу
+            if (!string.IsNullOrEmpty(textBoxSortWhichColumn_SMA.Text.Trim()))
+            {
+                if (!int.TryParse(textBoxSortWhichColumn_SMA.Text.Trim(), out sortColumnIndex))
+                {
+                    MessageBox.Show("Укажите корректный номер столбца для сортировки.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // преобразуем номер столбца (начиная с 1) в индекс (начиная с 0)
+                sortColumnIndex -= 1;
+
+                // проверяем, чтобы индекс столбца был в пределах допустимых значений
+                if (sortColumnIndex < 0 || sortColumnIndex >= dataGridView_SMA.ColumnCount)
+                {
+                    MessageBox.Show("Указан некорректный номер столбца.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            // сортируем по убыванию
+            dataGridView_SMA.Sort(dataGridView_SMA.Columns[sortColumnIndex], System.ComponentModel.ListSortDirection.Descending);
+        }
+
+        private void buttonSortAscending_SMA_Click(object sender, EventArgs e)
+        {
+            // получаем номер столбца для сортировки
+            int sortColumnIndex = 0; // по умолчанию сортируем по первому столбцу
+            if (!string.IsNullOrEmpty(textBoxSortWhichColumn_SMA.Text.Trim()))
+            {
+                if (!int.TryParse(textBoxSortWhichColumn_SMA.Text.Trim(), out sortColumnIndex))
+                {
+                    MessageBox.Show("Укажите корректный номер столбца для сортировки.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // преобразуем номер столбца (начиная с 1) в индекс (начиная с 0)
+                sortColumnIndex -= 1;
+
+                // проверяем чтобы индекс столбца был в пределах допустимых значений
+                if (sortColumnIndex < 0 || sortColumnIndex >= dataGridView_SMA.ColumnCount)
+                {
+                    MessageBox.Show("Указан некорректный номер столбца.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            // сортируем по возрастанию
+            dataGridView_SMA.Sort(dataGridView_SMA.Columns[sortColumnIndex], System.ComponentModel.ListSortDirection.Ascending);
+        }
+
+        private void buttonSortDefaultColumn_SMA_Click(object sender, EventArgs e)
+        {
+            textBoxSortWhichColumn_SMA.Clear();
+        }
     }
 }
