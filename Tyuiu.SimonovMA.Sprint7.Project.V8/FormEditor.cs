@@ -121,5 +121,74 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8
                 }
             }
         }
+
+        private void buttonDataSearch_SMA_Click(object sender, EventArgs e)
+        {
+            // Получаем текст для поиска
+            string searchText = textBoxSearch_SMA.Text.Trim();
+            if (string.IsNullOrEmpty(searchText))
+            {
+                MessageBox.Show("Введите текст для поиска.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Определяем индекс столбца для поиска
+            int searchColumnIndex = 0; // По умолчанию ищем в первом столбце
+            if (!string.IsNullOrEmpty(textBoxSearchColumn_SMA.Text.Trim()))
+            {
+                if (!int.TryParse(textBoxSearchColumn_SMA.Text.Trim(), out searchColumnIndex))
+                {
+                    MessageBox.Show("Укажите корректный номер столбца для поиска.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Преобразуем номер столбца (начиная с 1) в индекс (начиная с 0)
+                searchColumnIndex -= 1;
+
+                // Проверяем, чтобы индекс столбца был в пределах допустимых значений
+                if (searchColumnIndex < 0 || searchColumnIndex >= dataGridView_SMA.ColumnCount)
+                {
+                    MessageBox.Show("Указан некорректный номер столбца.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            // Выполняем поиск
+            List<string> foundRows = new List<string>();
+            foreach (DataGridViewRow row in dataGridView_SMA.Rows)
+            {
+                // Игнорируем новую строку
+                if (row.IsNewRow)
+                    continue;
+
+                // Получаем значение в указанном столбце
+                string cellValue = row.Cells[searchColumnIndex].Value?.ToString() ?? "";
+
+                // Сравниваем значение с искомым текстом
+                if (cellValue.Equals(searchText, StringComparison.OrdinalIgnoreCase))
+                {
+                    // Формируем строку с данными всей строки
+                    string rowData = string.Join(" | ", row.Cells.Cast<DataGridViewCell>().Select(cell => cell.Value?.ToString() ?? ""));
+                    foundRows.Add(rowData);
+                }
+            }
+
+            // Отображаем результат
+            if (foundRows.Count > 0)
+            {
+                MessageBox.Show("Найдены следующие строки:\n" + string.Join("\n", foundRows), "Результаты поиска", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Совпадения не найдены.", "Результаты поиска", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void buttonClearSearch_SMA_Click(object sender, EventArgs e)
+        {
+            textBoxSearch_SMA.Clear();
+            textBoxSearchColumn_SMA.Clear();
+        }
+
     }
 }

@@ -435,6 +435,7 @@
             buttonClearSearch_SMA.TabIndex = 5;
             buttonClearSearch_SMA.Text = "X";
             buttonClearSearch_SMA.UseVisualStyleBackColor = true;
+            buttonClearSearch_SMA.Click += buttonClearSearch_SMA_Click;
             // 
             // buttonDataSearch_SMA
             // 
@@ -444,6 +445,7 @@
             buttonDataSearch_SMA.TabIndex = 4;
             buttonDataSearch_SMA.Text = "Поиск";
             buttonDataSearch_SMA.UseVisualStyleBackColor = true;
+            buttonDataSearch_SMA.Click += buttonDataSearch_SMA_Click;
             // 
             // textBoxSearch_SMA
             // 
