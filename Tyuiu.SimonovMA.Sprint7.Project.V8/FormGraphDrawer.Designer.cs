@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             buttonLoadFile_SMA = new Button();
             buttonDrawGraph_SMA = new Button();
             groupBox2 = new GroupBox();
@@ -66,38 +66,41 @@
             // 
             // groupBox2
             // 
+            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox2.Controls.Add(chartDataGraph_SMA);
             groupBox2.Controls.Add(dataGridView_SMA);
             groupBox2.Location = new Point(4, 56);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(792, 390);
+            groupBox2.Size = new Size(703, 367);
             groupBox2.TabIndex = 0;
             groupBox2.TabStop = false;
             // 
             // chartDataGraph_SMA
             // 
-            chartArea2.Name = "ChartArea1";
-            chartDataGraph_SMA.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            chartDataGraph_SMA.Legends.Add(legend2);
+            chartDataGraph_SMA.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            chartArea1.Name = "ChartArea1";
+            chartDataGraph_SMA.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chartDataGraph_SMA.Legends.Add(legend1);
             chartDataGraph_SMA.Location = new Point(216, 15);
             chartDataGraph_SMA.Name = "chartDataGraph_SMA";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chartDataGraph_SMA.Series.Add(series2);
-            chartDataGraph_SMA.Size = new Size(568, 367);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chartDataGraph_SMA.Series.Add(series1);
+            chartDataGraph_SMA.Size = new Size(479, 344);
             chartDataGraph_SMA.TabIndex = 4;
             chartDataGraph_SMA.Text = "chart1";
             // 
             // dataGridView_SMA
             // 
+            dataGridView_SMA.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             dataGridView_SMA.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_SMA.Columns.AddRange(new DataGridViewColumn[] { Speed, Time });
             dataGridView_SMA.Location = new Point(6, 15);
             dataGridView_SMA.Name = "dataGridView_SMA";
             dataGridView_SMA.RowHeadersVisible = false;
-            dataGridView_SMA.Size = new Size(204, 367);
+            dataGridView_SMA.Size = new Size(204, 344);
             dataGridView_SMA.TabIndex = 3;
             // 
             // Speed
@@ -126,13 +129,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(711, 427);
             Controls.Add(groupBox2);
             Controls.Add(buttonDrawGraph_SMA);
             Controls.Add(buttonClear_SMA);
             Controls.Add(buttonLoadFile_SMA);
+            MaximizeBox = false;
+            MinimumSize = new Size(532, 368);
             Name = "FormGraphDrawer";
-            Text = "Графики скорости/времени";
+            Text = "График скорости/времени";
             groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)chartDataGraph_SMA).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView_SMA).EndInit();

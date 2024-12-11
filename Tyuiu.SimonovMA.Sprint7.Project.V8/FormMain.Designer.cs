@@ -33,7 +33,7 @@
             buttonCalculator_SMA = new Button();
             buttonEditor_SMA = new Button();
             buttonSpeedTime_SMA = new Button();
-            button4 = new Button();
+            buttonInsructions_SMA = new Button();
             SuspendLayout();
             // 
             // buttonAbout_SMA
@@ -88,26 +88,27 @@
             buttonSpeedTime_SMA.Name = "buttonSpeedTime_SMA";
             buttonSpeedTime_SMA.Size = new Size(196, 38);
             buttonSpeedTime_SMA.TabIndex = 4;
-            buttonSpeedTime_SMA.Text = "Графики скорости/времени";
+            buttonSpeedTime_SMA.Text = "График скорости/времени";
             buttonSpeedTime_SMA.UseVisualStyleBackColor = true;
             buttonSpeedTime_SMA.Click += buttonSpeedTime_SMA_Click;
             // 
-            // button4
+            // buttonInsructions_SMA
             // 
-            button4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button4.Location = new Point(171, 286);
-            button4.Name = "button4";
-            button4.Size = new Size(97, 30);
-            button4.TabIndex = 5;
-            button4.Text = "Инструкция";
-            button4.UseVisualStyleBackColor = true;
+            buttonInsructions_SMA.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonInsructions_SMA.Location = new Point(171, 286);
+            buttonInsructions_SMA.Name = "buttonInsructions_SMA";
+            buttonInsructions_SMA.Size = new Size(97, 30);
+            buttonInsructions_SMA.TabIndex = 5;
+            buttonInsructions_SMA.Text = "Инструкция";
+            buttonInsructions_SMA.UseVisualStyleBackColor = true;
+            buttonInsructions_SMA.Click += buttonInsructions_SMA_Click;
             // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(315, 328);
-            Controls.Add(button4);
+            Controls.Add(buttonInsructions_SMA);
             Controls.Add(buttonSpeedTime_SMA);
             Controls.Add(buttonEditor_SMA);
             Controls.Add(buttonCalculator_SMA);
@@ -130,6 +131,6 @@
         private Button buttonCalculator_SMA;
         private Button buttonEditor_SMA;
         private Button buttonSpeedTime_SMA;
-        private Button button4;
+        private Button buttonInsructions_SMA;
     }
 }

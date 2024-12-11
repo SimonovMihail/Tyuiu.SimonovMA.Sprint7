@@ -50,5 +50,13 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8
             formDrawer.Location = this.Location;
             formDrawer.ShowDialog();
         }
+
+        private void buttonInsructions_SMA_Click(object sender, EventArgs e)
+        {
+            FormInstructions formInstructions = new FormInstructions();
+            formInstructions.StartPosition = FormStartPosition.Manual;
+            formInstructions.Location = this.Location;
+            formInstructions.ShowDialog();
+        }
     }
 }

@@ -69,5 +69,15 @@ namespace Tyuiu.SimonovMA.Sprint7.Project.V8.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap instructions_databases {
+            get {
+                object obj = ResourceManager.GetObject("instructions databases", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
