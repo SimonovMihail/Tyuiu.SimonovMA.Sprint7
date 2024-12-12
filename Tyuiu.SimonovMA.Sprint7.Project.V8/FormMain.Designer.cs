@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             buttonAbout_SMA = new Button();
             labelName_SMA = new Label();
             buttonCalculator_SMA = new Button();
             buttonEditor_SMA = new Button();
             buttonSpeedTime_SMA = new Button();
             buttonInsructions_SMA = new Button();
+            toolTipMainMenu_SMA = new ToolTip(components);
             SuspendLayout();
             // 
             // buttonAbout_SMA
@@ -44,6 +46,7 @@
             buttonAbout_SMA.Size = new Size(30, 30);
             buttonAbout_SMA.TabIndex = 0;
             buttonAbout_SMA.Text = "?";
+            toolTipMainMenu_SMA.SetToolTip(buttonAbout_SMA, "О программе.");
             buttonAbout_SMA.UseVisualStyleBackColor = true;
             buttonAbout_SMA.Click += buttonAbout_SMA_Click;
             // 
@@ -67,6 +70,7 @@
             buttonCalculator_SMA.Size = new Size(196, 38);
             buttonCalculator_SMA.TabIndex = 2;
             buttonCalculator_SMA.Text = "Расчёт расхода топлива";
+            toolTipMainMenu_SMA.SetToolTip(buttonCalculator_SMA, "Открывает калькулятор для расчёта расхода топлива.");
             buttonCalculator_SMA.UseVisualStyleBackColor = true;
             buttonCalculator_SMA.Click += button1_Click;
             // 
@@ -78,6 +82,7 @@
             buttonEditor_SMA.Size = new Size(196, 38);
             buttonEditor_SMA.TabIndex = 3;
             buttonEditor_SMA.Text = "Редактор автомобильной базы";
+            toolTipMainMenu_SMA.SetToolTip(buttonEditor_SMA, "Открывает редактор баз данных.");
             buttonEditor_SMA.UseVisualStyleBackColor = true;
             buttonEditor_SMA.Click += button2_Click;
             // 
@@ -89,6 +94,7 @@
             buttonSpeedTime_SMA.Size = new Size(196, 38);
             buttonSpeedTime_SMA.TabIndex = 4;
             buttonSpeedTime_SMA.Text = "График скорости/времени";
+            toolTipMainMenu_SMA.SetToolTip(buttonSpeedTime_SMA, "Открывает чертёжник графика скорости от времени.");
             buttonSpeedTime_SMA.UseVisualStyleBackColor = true;
             buttonSpeedTime_SMA.Click += buttonSpeedTime_SMA_Click;
             // 
@@ -100,6 +106,7 @@
             buttonInsructions_SMA.Size = new Size(97, 30);
             buttonInsructions_SMA.TabIndex = 5;
             buttonInsructions_SMA.Text = "Инструкция";
+            toolTipMainMenu_SMA.SetToolTip(buttonInsructions_SMA, "Посмотреть инструкцию к программе можно здесь.");
             buttonInsructions_SMA.UseVisualStyleBackColor = true;
             buttonInsructions_SMA.Click += buttonInsructions_SMA_Click;
             // 
@@ -132,5 +139,6 @@
         private Button buttonEditor_SMA;
         private Button buttonSpeedTime_SMA;
         private Button buttonInsructions_SMA;
+        private ToolTip toolTipMainMenu_SMA;
     }
 }

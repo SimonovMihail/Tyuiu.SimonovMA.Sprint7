@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -39,6 +40,7 @@
             Speed = new DataGridViewTextBoxColumn();
             Time = new DataGridViewTextBoxColumn();
             buttonClear_SMA = new Button();
+            toolTipDrawer_SMA = new ToolTip(components);
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chartDataGraph_SMA).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView_SMA).BeginInit();
@@ -51,6 +53,7 @@
             buttonLoadFile_SMA.Size = new Size(98, 38);
             buttonLoadFile_SMA.TabIndex = 0;
             buttonLoadFile_SMA.Text = "Загрузить";
+            toolTipDrawer_SMA.SetToolTip(buttonLoadFile_SMA, "Загрузить файл.");
             buttonLoadFile_SMA.UseVisualStyleBackColor = true;
             buttonLoadFile_SMA.Click += buttonLoadFile_SMA_Click;
             // 
@@ -61,6 +64,7 @@
             buttonDrawGraph_SMA.Size = new Size(98, 38);
             buttonDrawGraph_SMA.TabIndex = 2;
             buttonDrawGraph_SMA.Text = "Нарисовать график";
+            toolTipDrawer_SMA.SetToolTip(buttonDrawGraph_SMA, "Нарисовать график по данным с базы данных.");
             buttonDrawGraph_SMA.UseVisualStyleBackColor = true;
             buttonDrawGraph_SMA.Click += buttonDrawGraph_SMA_Click;
             // 
@@ -122,6 +126,7 @@
             buttonClear_SMA.Size = new Size(98, 38);
             buttonClear_SMA.TabIndex = 1;
             buttonClear_SMA.Text = "Очистить";
+            toolTipDrawer_SMA.SetToolTip(buttonClear_SMA, "Очистить базу данных.");
             buttonClear_SMA.UseVisualStyleBackColor = true;
             buttonClear_SMA.Click += buttonClear_SMA_Click;
             // 
@@ -154,5 +159,6 @@
         private Button buttonClear_SMA;
         private DataGridViewTextBoxColumn Speed;
         private DataGridViewTextBoxColumn Time;
+        private ToolTip toolTipDrawer_SMA;
     }
 }

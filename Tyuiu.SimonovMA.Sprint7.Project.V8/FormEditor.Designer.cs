@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             groupBoxControls_SMA = new GroupBox();
             buttonSave_SMA = new Button();
             buttonLoad_SMA = new Button();
             groupBoxWorkSpace_SMA = new GroupBox();
             groupBoxStatistics_SMA = new GroupBox();
+            buttonStatisticsClear_SMA = new Button();
             labelMaxWhichColumn_SMA = new Label();
             textBoxMaxWhichColumn_SMA = new TextBox();
             buttonMaxCalculate_SMA = new Button();
@@ -73,7 +75,7 @@
             CarWeight = new DataGridViewTextBoxColumn();
             CarPower = new DataGridViewTextBoxColumn();
             CarFuelConsuption = new DataGridViewTextBoxColumn();
-            buttonStatisticsClear_SMA = new Button();
+            toolTipEditor_SMA = new ToolTip(components);
             groupBoxControls_SMA.SuspendLayout();
             groupBoxWorkSpace_SMA.SuspendLayout();
             groupBoxStatistics_SMA.SuspendLayout();
@@ -99,6 +101,7 @@
             buttonSave_SMA.Size = new Size(98, 38);
             buttonSave_SMA.TabIndex = 3;
             buttonSave_SMA.Text = "Сохранить";
+            toolTipEditor_SMA.SetToolTip(buttonSave_SMA, "Сохранить файл.");
             buttonSave_SMA.UseVisualStyleBackColor = true;
             buttonSave_SMA.Click += buttonSave_SMA_Click;
             // 
@@ -109,6 +112,7 @@
             buttonLoad_SMA.Size = new Size(98, 38);
             buttonLoad_SMA.TabIndex = 2;
             buttonLoad_SMA.Text = "Загрузить";
+            toolTipEditor_SMA.SetToolTip(buttonLoad_SMA, "Загрузить файл.");
             buttonLoad_SMA.UseVisualStyleBackColor = true;
             buttonLoad_SMA.Click += buttonLoad_SMA_Click;
             // 
@@ -162,6 +166,17 @@
             groupBoxStatistics_SMA.TabStop = false;
             groupBoxStatistics_SMA.Text = "Элементы статистики";
             // 
+            // buttonStatisticsClear_SMA
+            // 
+            buttonStatisticsClear_SMA.Location = new Point(8, 25);
+            buttonStatisticsClear_SMA.Name = "buttonStatisticsClear_SMA";
+            buttonStatisticsClear_SMA.Size = new Size(75, 23);
+            buttonStatisticsClear_SMA.TabIndex = 2;
+            buttonStatisticsClear_SMA.Text = "Очистить";
+            toolTipEditor_SMA.SetToolTip(buttonStatisticsClear_SMA, "Очищает все поля статистики.");
+            buttonStatisticsClear_SMA.UseVisualStyleBackColor = true;
+            buttonStatisticsClear_SMA.Click += buttonStatisticsClear_SMA_Click;
+            // 
             // labelMaxWhichColumn_SMA
             // 
             labelMaxWhichColumn_SMA.AutoSize = true;
@@ -177,6 +192,7 @@
             textBoxMaxWhichColumn_SMA.Name = "textBoxMaxWhichColumn_SMA";
             textBoxMaxWhichColumn_SMA.Size = new Size(23, 23);
             textBoxMaxWhichColumn_SMA.TabIndex = 31;
+            toolTipEditor_SMA.SetToolTip(textBoxMaxWhichColumn_SMA, "Позволяет настроить то, с какого столбца будут браться данные для операции (по умолчанию первый столбец).");
             // 
             // buttonMaxCalculate_SMA
             // 
@@ -185,6 +201,7 @@
             buttonMaxCalculate_SMA.Size = new Size(75, 23);
             buttonMaxCalculate_SMA.TabIndex = 30;
             buttonMaxCalculate_SMA.Text = "Посчитать";
+            toolTipEditor_SMA.SetToolTip(buttonMaxCalculate_SMA, "Посчитать максимальное количество элементов столбца.");
             buttonMaxCalculate_SMA.UseVisualStyleBackColor = true;
             buttonMaxCalculate_SMA.Click += buttonMaxCalculate_SMA_Click;
             // 
@@ -221,6 +238,7 @@
             textBoxMinWhichColumn_SMA.Name = "textBoxMinWhichColumn_SMA";
             textBoxMinWhichColumn_SMA.Size = new Size(23, 23);
             textBoxMinWhichColumn_SMA.TabIndex = 26;
+            toolTipEditor_SMA.SetToolTip(textBoxMinWhichColumn_SMA, "Позволяет настроить то, с какого столбца будут браться данные для операции (по умолчанию первый столбец).");
             // 
             // buttonMinCalculate_SMA
             // 
@@ -229,6 +247,7 @@
             buttonMinCalculate_SMA.Size = new Size(75, 23);
             buttonMinCalculate_SMA.TabIndex = 25;
             buttonMinCalculate_SMA.Text = "Посчитать";
+            toolTipEditor_SMA.SetToolTip(buttonMinCalculate_SMA, "Посчитать минимальное значение элементов столбца.");
             buttonMinCalculate_SMA.UseVisualStyleBackColor = true;
             buttonMinCalculate_SMA.Click += buttonMinCalculate_SMA_Click;
             // 
@@ -265,6 +284,7 @@
             textBoxMeanWhichColumn_SMA.Name = "textBoxMeanWhichColumn_SMA";
             textBoxMeanWhichColumn_SMA.Size = new Size(23, 23);
             textBoxMeanWhichColumn_SMA.TabIndex = 21;
+            toolTipEditor_SMA.SetToolTip(textBoxMeanWhichColumn_SMA, "Позволяет настроить то, с какого столбца будут браться данные для операции (по умолчанию первый столбец).");
             // 
             // buttonMeanCalculate_SMA
             // 
@@ -273,6 +293,7 @@
             buttonMeanCalculate_SMA.Size = new Size(75, 23);
             buttonMeanCalculate_SMA.TabIndex = 20;
             buttonMeanCalculate_SMA.Text = "Посчитать";
+            toolTipEditor_SMA.SetToolTip(buttonMeanCalculate_SMA, "Посчитать среднее значение элементов столбца.");
             buttonMeanCalculate_SMA.UseVisualStyleBackColor = true;
             buttonMeanCalculate_SMA.Click += buttonMeanCalculate_SMA_Click;
             // 
@@ -291,6 +312,7 @@
             textBoxSumWhichColumn_SMA.Name = "textBoxSumWhichColumn_SMA";
             textBoxSumWhichColumn_SMA.Size = new Size(23, 23);
             textBoxSumWhichColumn_SMA.TabIndex = 17;
+            toolTipEditor_SMA.SetToolTip(textBoxSumWhichColumn_SMA, "Позволяет настроить то, с какого столбца будут браться данные для операции (по умолчанию первый столбец).");
             // 
             // labelMean_SMA
             // 
@@ -308,6 +330,7 @@
             buttonSumCalculate_SMA.Size = new Size(75, 23);
             buttonSumCalculate_SMA.TabIndex = 15;
             buttonSumCalculate_SMA.Text = "Посчитать";
+            toolTipEditor_SMA.SetToolTip(buttonSumCalculate_SMA, "Посчитать сумму элементов столбца.");
             buttonSumCalculate_SMA.UseVisualStyleBackColor = true;
             buttonSumCalculate_SMA.Click += buttonSumCalculate_SMA_Click;
             // 
@@ -336,6 +359,7 @@
             buttonCountCalculate_SMA.Size = new Size(75, 24);
             buttonCountCalculate_SMA.TabIndex = 13;
             buttonCountCalculate_SMA.Text = "Посчитать";
+            toolTipEditor_SMA.SetToolTip(buttonCountCalculate_SMA, "Посчитать количество элементов (строк) в базе данных.");
             buttonCountCalculate_SMA.UseVisualStyleBackColor = true;
             buttonCountCalculate_SMA.Click += buttonCountCalculate_SMA_Click;
             // 
@@ -387,6 +411,7 @@
             buttonSortDefaultColumn_SMA.Size = new Size(158, 24);
             buttonSortDefaultColumn_SMA.TabIndex = 10;
             buttonSortDefaultColumn_SMA.Text = "Столбец о умолчанию";
+            toolTipEditor_SMA.SetToolTip(buttonSortDefaultColumn_SMA, "Очищает поле выборки столбца.");
             buttonSortDefaultColumn_SMA.UseVisualStyleBackColor = true;
             buttonSortDefaultColumn_SMA.Click += buttonSortDefaultColumn_SMA_Click;
             // 
@@ -396,6 +421,7 @@
             textBoxSortWhichColumn_SMA.Name = "textBoxSortWhichColumn_SMA";
             textBoxSortWhichColumn_SMA.Size = new Size(23, 23);
             textBoxSortWhichColumn_SMA.TabIndex = 9;
+            toolTipEditor_SMA.SetToolTip(textBoxSortWhichColumn_SMA, "Позволяет сортировать данные по конкретному столбцу (по умолчанию первый столбец).");
             // 
             // labelSortWhichColumn_SMA
             // 
@@ -413,6 +439,7 @@
             buttonSortAscending_SMA.Size = new Size(107, 36);
             buttonSortAscending_SMA.TabIndex = 3;
             buttonSortAscending_SMA.Text = "По возрастанию";
+            toolTipEditor_SMA.SetToolTip(buttonSortAscending_SMA, "Отсортировать базу данных по возрастанию по столбцу.");
             buttonSortAscending_SMA.UseVisualStyleBackColor = true;
             buttonSortAscending_SMA.Click += buttonSortAscending_SMA_Click;
             // 
@@ -423,6 +450,7 @@
             buttonSortDescending_SMA.Size = new Size(105, 36);
             buttonSortDescending_SMA.TabIndex = 2;
             buttonSortDescending_SMA.Text = "По убыванию";
+            toolTipEditor_SMA.SetToolTip(buttonSortDescending_SMA, "Отсортировать базу данных по убыванию по столбцу.");
             buttonSortDescending_SMA.UseVisualStyleBackColor = true;
             buttonSortDescending_SMA.Click += buttonSortDescending_SMA_Click;
             // 
@@ -432,6 +460,7 @@
             textBoxSearchColumn_SMA.Name = "textBoxSearchColumn_SMA";
             textBoxSearchColumn_SMA.Size = new Size(23, 23);
             textBoxSearchColumn_SMA.TabIndex = 7;
+            toolTipEditor_SMA.SetToolTip(textBoxSearchColumn_SMA, "Позволяет искать данные по конкретному столбцу (по умолчанию первый столбец).\r\n");
             // 
             // labelSearchColumn_SMA
             // 
@@ -449,6 +478,7 @@
             buttonClearSearch_SMA.Size = new Size(23, 23);
             buttonClearSearch_SMA.TabIndex = 5;
             buttonClearSearch_SMA.Text = "X";
+            toolTipEditor_SMA.SetToolTip(buttonClearSearch_SMA, "Очищает поле поиска.");
             buttonClearSearch_SMA.UseVisualStyleBackColor = true;
             buttonClearSearch_SMA.Click += buttonClearSearch_SMA_Click;
             // 
@@ -459,6 +489,7 @@
             buttonDataSearch_SMA.Size = new Size(75, 23);
             buttonDataSearch_SMA.TabIndex = 4;
             buttonDataSearch_SMA.Text = "Поиск";
+            toolTipEditor_SMA.SetToolTip(buttonDataSearch_SMA, "Искать.");
             buttonDataSearch_SMA.UseVisualStyleBackColor = true;
             buttonDataSearch_SMA.Click += buttonDataSearch_SMA_Click;
             // 
@@ -468,6 +499,7 @@
             textBoxSearch_SMA.Name = "textBoxSearch_SMA";
             textBoxSearch_SMA.Size = new Size(198, 23);
             textBoxSearch_SMA.TabIndex = 3;
+            toolTipEditor_SMA.SetToolTip(textBoxSearch_SMA, "Введите что-нибудь для поиска.");
             // 
             // dataGridView_SMA
             // 
@@ -505,16 +537,6 @@
             // 
             CarFuelConsuption.HeaderText = "Расход топлива (л. на 100 км.)";
             CarFuelConsuption.Name = "CarFuelConsuption";
-            // 
-            // buttonStatisticsClear_SMA
-            // 
-            buttonStatisticsClear_SMA.Location = new Point(8, 25);
-            buttonStatisticsClear_SMA.Name = "buttonStatisticsClear_SMA";
-            buttonStatisticsClear_SMA.Size = new Size(75, 23);
-            buttonStatisticsClear_SMA.TabIndex = 2;
-            buttonStatisticsClear_SMA.Text = "Очистить";
-            buttonStatisticsClear_SMA.UseVisualStyleBackColor = true;
-            buttonStatisticsClear_SMA.Click += buttonStatisticsClear_SMA_Click;
             // 
             // FormEditor
             // 
@@ -586,5 +608,6 @@
         private DataGridViewTextBoxColumn CarPower;
         private DataGridViewTextBoxColumn CarFuelConsuption;
         private Button buttonStatisticsClear_SMA;
+        private ToolTip toolTipEditor_SMA;
     }
 }
